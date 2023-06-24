@@ -25,8 +25,9 @@ Choice one of this codes I choce code number 1 NRZ in this exmple
 ### secondly 
 enter your binary Data ! must be space between bit and bit
 
-#Exmple :
-'''
+# Exmple :
+
+```
 +++++++++++++++++++ Base Band Coding Types +++++++++++++++++++++
 1 --> NRZ
 2 --> RZ
@@ -36,5 +37,5 @@ enter your binary Data ! must be space between bit and bit
 6 --> MILLER
 Choice One Of This Code  :  1
 Enter Your Binary Sequence : 1 0 1 0 1 0 1 0 0
-'''
+```
 

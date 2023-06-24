@@ -25,11 +25,18 @@ class Coding:
     @staticmethod
     def RZ(Data):
         RZ_CODE = []
+        FIRST_BIT = True
         for bit in Coding.Convert_list(Data):
             if bit == 1:
+                if FIRST_BIT:
+                    RZ_CODE.append(5)
+                    FIRST_BIT = False
                 RZ_CODE.append(5)
                 RZ_CODE.append(0)
             else:
+                if FIRST_BIT:
+                    RZ_CODE.append(5)
+                    FIRST_BIT = False
                 RZ_CODE.append(-5)
                 RZ_CODE.append(0)
         return np.array(RZ_CODE)

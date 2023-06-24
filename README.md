@@ -16,12 +16,12 @@ I have six type in this repository :
 # Modules used
 
 I used tow modules in this script :
-### mathplot "for visualization the signal " .
+### mathplot 'for visualization the signal ' .
 ### numpy .
 
 # How to use this script ? 
 ### firstly
-Choice one of this codes I choce code number 1 NRZ in this exmple
+Choice one of this codes I choce code number 1 'NRZ' in this exmple
 ### secondly 
 enter your binary Data ! must be space between bit and bit
 

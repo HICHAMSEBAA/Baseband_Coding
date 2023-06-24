@@ -32,6 +32,7 @@ class Plot:
         plt.step(T, Data, color='b')
         plt.title(Title1)
         plt.xlabel("Time(s)")
+        plt.xlim(0)
         plt.ylabel("Voltage")
         plt.grid()
         # plot 2
@@ -40,6 +41,7 @@ class Plot:
         plt.step(T, Code, color='r')
         plt.title(Title2)
         plt.xlabel("Time(s)")
+        plt.xlim(0)
         plt.ylabel("Voltage")
         plt.grid()
 

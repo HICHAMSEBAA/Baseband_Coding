@@ -25,6 +25,7 @@ class Plot:
 
     @staticmethod
     def Visualization_(Data, Code, Title1, Title2):
+        code, test = Code
         # plot 1
         plt.subplot(2, 1, 1)
         Data = Plot.Convert_array(Data)
@@ -33,16 +34,26 @@ class Plot:
         plt.title(Title1)
         plt.xlabel("Time(s)")
         plt.xlim(0)
-        plt.ylabel("Voltage")
+        plt.ylabel("Binary")
         plt.grid()
         # plot 2
-        plt.subplot(2, 1, 2)
-        T = np.arange(0, len(Code))
-        plt.step(T, Code, color='r')
-        plt.title(Title2)
-        plt.xlabel("Time(s)")
-        plt.xlim(0)
-        plt.ylabel("Voltage")
-        plt.grid()
+        if test:
+            plt.subplot(2, 1, 2)
+            T = np.arange(0, len(code))
+            plt.step(T, code, color='r')
+            plt.title(Title2)
+            plt.xlabel("Time(s)")
+            plt.xlim(0)
+            plt.ylabel("Voltage")
+            plt.grid()
+        else:
+            plt.subplot(2, 1, 2)
+            T = np.arange(0, len(Data) - 0.5, 0.5)
+            plt.step(T, code, color='r')
+            plt.title(Title2)
+            plt.xlabel("Time(s)")
+            plt.xlim(0)
+            plt.ylabel("Voltage")
+            plt.grid()
 
         plt.show()

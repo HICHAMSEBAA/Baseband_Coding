@@ -26,7 +26,7 @@ class Coding:
                     NRZ_CODE.append(5)
                     FIRST_BIT = False
                 NRZ_CODE.append(5)
-        return np.array(NRZ_CODE)
+        return NRZ_CODE, True
 
     @staticmethod
     def RZ(Data):
@@ -46,7 +46,7 @@ class Coding:
                     FIRST_BIT = False
                 RZ_CODE.append(-5)
                 RZ_CODE.append(0)
-        return np.array(RZ_CODE)
+        return RZ_CODE, False
 
     @staticmethod
     def NRZI(Data):
@@ -65,7 +65,7 @@ class Coding:
                     FIRST_BIT = False
                 NRZI.append(-BIT)
                 BIT = -BIT
-        return NRZI
+        return NRZI, True
 
     @staticmethod
     def Manchester(Data):
@@ -84,7 +84,7 @@ class Coding:
                     FIRST_BIT = False
                 Manchester.append(-5)
                 Manchester.append(5)
-        return Manchester
+        return Manchester, False
 
     @staticmethod
     def Differential_Manchester(Data):
@@ -109,7 +109,7 @@ class Coding:
                 else:
                     Manchester_D.append(-Manchester_D[len(Manchester_D) - 1])
                     Manchester_D.append(Manchester_D[len(Manchester_D) - 2])
-        return Manchester_D
+        return Manchester_D, False
 
     @staticmethod
     def MILLER(Data):
@@ -139,5 +139,4 @@ class Coding:
                     else:
                         MILLER.append(-MILLER[len(MILLER) - 1])
                         MILLER.append(-MILLER[len(MILLER) - 2])
-        return MILLER
-
+        return MILLER, False

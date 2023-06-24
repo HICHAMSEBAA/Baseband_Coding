@@ -24,6 +24,7 @@ class Coding:
 
     @staticmethod
     def RZ(Data):
+        # 1 = 5v / 0 = -5v
         RZ_CODE = []
         FIRST_BIT = True
         for bit in Coding.Convert_list(Data):
@@ -43,4 +44,23 @@ class Coding:
 
     @staticmethod
     def NRZI(Data):
-        pass
+        NRZI = []
+        BIT = 5
+        FIRST_BIT = True
+        for bit in Coding.Convert_list(Data):
+            if bit == 1:
+                if FIRST_BIT:
+                    NRZI.append(BIT)
+                    FIRST_BIT = False
+                NRZI.append(BIT)
+            else:
+                if FIRST_BIT:
+                    NRZI.append(BIT)
+                    FIRST_BIT = False
+                NRZI.append(-BIT)
+                BIT = -BIT
+        return NRZI
+
+
+
+

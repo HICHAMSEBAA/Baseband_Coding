@@ -14,12 +14,18 @@ class Coding:
     def NRZ(Data):
         # 1 = -5v / 0 = 5v
         NRZ_CODE = []
+        FIRST_BIT = True
         for bit in Coding.Convert_list(Data):
             if bit == 1:
+                if FIRST_BIT:
+                    NRZ_CODE.append(-5)
+                    FIRST_BIT = False
                 NRZ_CODE.append(-5)
             else:
+                if FIRST_BIT:
+                    NRZ_CODE.append(5)
+                    FIRST_BIT = False
                 NRZ_CODE.append(5)
-
         return np.array(NRZ_CODE)
 
     @staticmethod
@@ -60,6 +66,25 @@ class Coding:
                 NRZI.append(-BIT)
                 BIT = -BIT
         return NRZI
+
+    @staticmethod
+    def Manchester(Data):
+        Manchester = []
+        FIRST_BIT = True
+        for bit in Coding.Convert_list(Data):
+            if bit == 1 :
+                if FIRST_BIT:
+                    Manchester.append(1)
+                    FIRST_BIT = False
+                Manchester.append(1)
+                Manchester.append(0)
+            else:
+                if FIRST_BIT:
+                    Manchester.append(0)
+                    FIRST_BIT = False
+                Manchester.append(0)
+                Manchester.append(1)
+        return Manchester
 
 
 

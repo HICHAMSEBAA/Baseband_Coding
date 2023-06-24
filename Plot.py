@@ -9,7 +9,10 @@ class Plot:
 
     @staticmethod
     def Convert_array(Data):
-        return np.array(list(map(lambda a: eval(a), Data.split())))
+        Data = list(map(lambda a: eval(a), Data.split()))
+        bit = Data[0]
+        Data.insert(0, bit)
+        return np.array(Data)
 
     @staticmethod
     def Visualization(Data, title):

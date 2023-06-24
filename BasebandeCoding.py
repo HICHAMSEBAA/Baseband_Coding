@@ -77,12 +77,12 @@ class Coding:
                     Manchester.append(5)
                     FIRST_BIT = False
                 Manchester.append(5)
-                Manchester.append(0)
+                Manchester.append(-5)
             else:
                 if FIRST_BIT:
-                    Manchester.append(0)
+                    Manchester.append(-5)
                     FIRST_BIT = False
-                Manchester.append(0)
+                Manchester.append(-5)
                 Manchester.append(5)
         return Manchester
 
@@ -95,28 +95,20 @@ class Coding:
                 if FIRST_BIT:
                     Manchester_D.append(5)
                     Manchester_D.append(5)
-                    Manchester_D.append(0)
+                    Manchester_D.append(-5)
                     FIRST_BIT = False
                 else:
-                    if Manchester_D[len(Manchester_D) - 1] == 5:
-                        Manchester_D.append(5)
-                        Manchester_D.append(0)
-                    else:
-                        Manchester_D.append(0)
-                        Manchester_D.append(5)
+                    Manchester_D.append(Manchester_D[len(Manchester_D) - 1])
+                    Manchester_D.append(-Manchester_D[len(Manchester_D) - 2])
             else:
                 if FIRST_BIT:
                     Manchester_D.append(5)
-                    Manchester_D.append(0)
+                    Manchester_D.append(-5)
                     Manchester_D.append(5)
                     FIRST_BIT = False
                 else:
-                    if Manchester_D[len(Manchester_D) - 1] == 5:
-                        Manchester_D.append(0)
-                        Manchester_D.append(5)
-                    else:
-                        Manchester_D.append(5)
-                        Manchester_D.append(0)
+                    Manchester_D.append(-Manchester_D[len(Manchester_D) - 1])
+                    Manchester_D.append(Manchester_D[len(Manchester_D) - 2])
         return Manchester_D
 
     @staticmethod
@@ -129,35 +121,23 @@ class Coding:
                 if FIRST_BIT:
                     MILLER.append(5)
                     MILLER.append(5)
-                    MILLER.append(0)
+                    MILLER.append(-5)
                     FIRST_BIT = False
                 else:
-                    if MILLER[len(MILLER) - 1] == 5:
-                        MILLER.append(5)
-                        MILLER.append(0)
-                    else:
-                        MILLER.append(0)
-                        MILLER.append(5)
+                    MILLER.append(MILLER[len(MILLER) - 1])
+                    MILLER.append(-MILLER[len(MILLER) - 2])
             else:
                 if FIRST_BIT:
-                    MILLER.append(0)
-                    MILLER.append(0)
-                    MILLER.append(0)
+                    MILLER.append(-5)
+                    MILLER.append(-5)
+                    MILLER.append(-5)
                     FIRST_BIT = False
                 else:
                     if DATA[i - 1] == 1:
-                        if MILLER[len(MILLER) - 1] == 5:
-                            MILLER.append(5)
-                            MILLER.append(5)
-                        else:
-                            MILLER.append(0)
-                            MILLER.append(0)
+                        MILLER.append(MILLER[len(MILLER) - 1])
+                        MILLER.append(MILLER[len(MILLER) - 2])
                     else:
-                        if MILLER[len(MILLER) - 1] == 0:
-                            MILLER.append(5)
-                            MILLER.append(5)
-                        else:
-                            MILLER.append(0)
-                            MILLER.append(0)
+                        MILLER.append(-MILLER[len(MILLER) - 1])
+                        MILLER.append(-MILLER[len(MILLER) - 2])
         return MILLER
 
